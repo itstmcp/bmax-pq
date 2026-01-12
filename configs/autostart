@@ -1,0 +1,13 @@
+xset s off
+xset s noblank
+xset -dpms
+
+amixer sset Master unmute
+amixer sset Master 100%
+
+/usr/bin/pulseaudio --start --exit-idle-time=-1 &
+
+(sleep 10 && /usr/bin/x11vnc -display :0 -rfbauth /home/kiosk/.vnc/passwd -forever -loop -noxdamage -repeat -rfbport 5900 -nonap -wait 50 -cursor arrow) &
+
+# URL เว็บแก้ที่บรรทัดนี้
+dbus-launch chromium --kiosk --no-first-run --incognito --autoplay-policy=no-user-gesture-required --disable-gpu --disable-software-rasterizer "http://192.168.1.51/pq_display/web_queue.html?computer_name=XRAY&playbackRate=1.3" &
