@@ -78,6 +78,12 @@ fi
 # 2. ปิด Swap (โดยการใส่เครื่องหมาย # หน้าบรรทัดที่มีคำว่า swap)
 sed -i '/swap/s/^/#/' /etc/fstab
 
+echo "=== 9. Setup Message of the Day (MOTD) ==="
+if [ -f "configs/motd" ]; then
+    cp configs/motd /etc/motd
+    echo "MOTD updated."
+fi
+
 echo "=== INSTALLATION COMPLETE ==="
 echo "Please type 'lbu commit -d' if you are running in Diskless Mode."
 echo "Then type 'reboot' to test."
