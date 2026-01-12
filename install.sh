@@ -63,7 +63,7 @@ echo "=== 7. Configuring Auto Login ==="
 # แก้ไฟล์ inittab เพื่อ auto login
 sed -i 's|tty1::respawn:/sbin/getty 38400 tty1|tty1::respawn:/bin/login -f kiosk|' /etc/inittab
 
-echo "=== 7. Optimize System (RAM Logs & Disable Swap) ==="
+echo "=== 8. Optimize System (RAM Logs & Disable Swap) ==="
 
 # 1. เพิ่มการตั้งค่าให้เก็บ Log และ Temp ลง RAM (tmpfs)
 # เช็คก่อนว่ามีอยู่แล้วไหม เพื่อกันการเขียนซ้ำ
