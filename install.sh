@@ -18,7 +18,7 @@ apk add xorg-server xf86-video-intel mesa-dri-gallium mesa-va-gallium \
     xinit dbus-x11 alsa-utils alsa-lib util-linux openbox chromium \
     font-noto-thai ttf-dejavu linux-firmware-intel sof-firmware \
     alsa-ucm-conf pulseaudio pulseaudio-alsa alsa-plugins-pulse \
-    tigervnc x11vnc nano nmtui
+    tigervnc x11vnc nano
 
 echo "=== 3. Setting up User 'kiosk' ==="
 # สร้าง user ถ้ายังไม่มี
