@@ -1,0 +1,23 @@
+---------------------------------------
+Alpine Linux | BMAX Kiosk System
+---------------------------------------
+BMAX B1 MINI PC - SPECIFICATION
+  - Intel Gemini Lake N4000
+  - Ram DDR4 8GB
+  - SSD 128GB eMMC
+---------------------------------------
+### Transfer Log & Temp to RAM
+    nano /etc/fstab
+    # ADD to last row
+    tmpfs    /tmp        tmpfs    defaults,noatime,mode=1777    0    0
+    tmpfs    /var/log    tmpfs    defaults,noatime,mode=0755    0    0
+    # check and #comment which row is 'swap'
+
+### Autostart config
+    nano /home/kiosk/.config/openbox/autostart
+
+### Fix soundcard
+    nano /etc/asound.conf
+
+### GUI Sound - alsamixer
+---------------------------------------
