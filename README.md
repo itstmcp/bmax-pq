@@ -21,8 +21,8 @@ BMAX B1 MINI PC
 2. **ติดตั้ง Git และดึงสคริปต์**
    ```bash
    apk add git
-   git clone https://github.com/itstmcp/b1mini-alpine-kiosk.git
-   cd ชื่อRepoของคุณ
+   git clone https://github.com/itstmcp/bmax-pq.git
+   cd bmax-pq
 
 3. สั่งรันการติดตั้ง
    ```bash
