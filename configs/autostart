@@ -2,12 +2,22 @@ xset s off
 xset s noblank
 xset -dpms
 
-amixer sset Master unmute
-amixer sset Master 100%
+## Gain volume up to hardware
+amixer -c 0 sset Master unmute
+amixer -c 0 sset Master 100%
 
+## Start PulseAudio
 /usr/bin/pulseaudio --start --exit-idle-time=-1 &
 
+## Force Driver HW:0,3 - hdmi_output / Delay 5 sec. wait to PulseAudio ready
+(sleep 5 && pactl load-module module-alsa-sink device=hw:0,3 sink_name=hdmi_output) &
+
+## Set Default Sink & Volume up
+(sleep 6 && pactl set-default-sink hdmi_output) &
+(sleep 6 && pactl set-sink-volume hdmi_output 65536) &
+
+## VNC
 (sleep 10 && /usr/bin/x11vnc -display :0 -rfbauth /home/kiosk/.vnc/passwd -forever -loop -noxdamage -repeat -rfbport 5900 -nonap -wait 50 -cursor arrow) &
 
-# URL เว็บแก้ที่บรรทัดนี้
-dbus-launch chromium --kiosk --no-first-run --incognito --autoplay-policy=no-user-gesture-required --disable-gpu --disable-software-rasterizer "http://192.168.1.51/pq_display/web_queue.html?computer_name=XRAY&playbackRate=1.3" &
+## Start Chromium kiosk mode - Edit URL here
+dbus-launch chromium --kiosk --no-first-run --incognito --autoplay-policy=no-user-gesture-required --disable-gpu --disable-software-rasterizer http://192.168.1.51/pq_display/web_queue.html?computer_name=XRAY&playbackRate=1.3 &
