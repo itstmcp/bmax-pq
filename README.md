@@ -4,6 +4,8 @@
 
 BMAX B1 MINI PC
 
+## 📋 ติดตั้ง Alpine linux และเตรียมระบบ SSH ให้เรียบร้อยก่อนจะ git
+
 ## 📋 สิ่งที่สคริปต์ทำ
 * อัปเดตแพ็กเกจและติดตั้ง Driver (Intel, Sound, Xorg)
 * สร้าง User `kiosk` และตั้งค่า Auto Login
